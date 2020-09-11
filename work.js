@@ -8,40 +8,8 @@ console.log(mainContainer)
 
 
 //global variable
-    var initialToDoListStorageObj = {
-        "9am": "",
-        "10am": "",
-        "11am": "",
-        "12pm": "",
-        "1pm": "",
-        "2pm": "",
-        "3pm": "",
-        "4pm": "",
-        "5pm": "",
-    }
 
-    var storageObj_serialized = JSON.parse(localStorage.getItem("agendaList")) || [];
-    
-    console.log(storageObj_serialized + "hello did this parsing work");
-
-    var renderToDos = toDoListStorageObj.
-
-
-    
-    mainContainer.on("click", ".saveBtn", function()  {
-        console.log($(this).siblings("div").text()); //this works because we need to reference a SIBLING in the same container.
-        console.log($(this).siblings("textarea").val());
-        
-        var hour = $(this).siblings("div").text()
-        var agenda = $(this).siblings("textarea").val()
-        
-        toDoListStorageObj[hour] = agenda;
-        localStorage.setItem("agendaList", JSON.stringify(toDoListStorageObj))
-});
-
-
-
-    var hourList = [
+       var hourList = [
         "9am",
         "10am",
         "11am",
@@ -52,6 +20,51 @@ console.log(mainContainer)
         "4pm",
         "5pm",
     ];
+    
+    var initialStorageObj   = {
+        "9am" : "",
+        "10am" : "",
+        "11am" : "",
+        "12pm" : "",
+        "1pm" : "",
+        "2pm" : "",
+        "3pm" : "",
+        "4pm" : "",
+        "5pm": "",
+    }
+    
+    var toDoListStorageObj_deserialized = JSON.parse(localStorage.getItem("agendaList")) || initialStorageObj;
+    console.log(toDoListStorageObj_deserialized); 
+
+    if (toDoListStorageObj_deserialized !== null)   {
+    for (var j = 0; j < hourList.length; j++) {
+        console.log("ME!!!");
+
+    }
+   
+    }
+    
+
+    // function renderToDo() {
+    //     for (var j; j < toDoListStorageObj_deserialized.length
+    // }
+
+
+    mainContainer.on("click", ".saveBtn", function()  {
+        console.log($(this).siblings("div").text()); //this works because we need to reference a SIBLING in the same container.
+        console.log($(this).siblings("textarea").val());
+
+           var hour = $(this).siblings("div").text();
+           var agenda = $(this).siblings("textarea").val();
+    
+        initialStorageObj[hour] = agenda;
+        localStorage.setItem("agendaList", JSON.stringify(initialStorageObj))
+    
+    });
+
+
+
+
 
 currentDateText.text(moment().format('MMM ddd do YYYY'));
 
@@ -78,11 +91,7 @@ for (var i = 0; i < hourList.length; i++) {
     formSave.addClass("text-area saveBtn time-block testing col-2");
     formSave.attr("dataType", hourList[i]);
     timeRow.append(formSave);
-
-};
-
-
+    }
 });
 
-
-
+// Click functionality for forSave functionality

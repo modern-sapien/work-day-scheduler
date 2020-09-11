@@ -8,7 +8,7 @@ console.log(mainContainer)
 
 
 //global variable
-var renderAgenda = JSON.parse(localStorage.getItem("agendaList")) || [];
+    toDoListStorageArray = [];
 
     var hourList = [
         "9am",
@@ -20,7 +20,7 @@ var renderAgenda = JSON.parse(localStorage.getItem("agendaList")) || [];
         "3pm",
         "4pm",
         "5pm",
-    ]
+    ];
 
 currentDateText.text(moment().format('MMM ddd do YYYY'));
 
@@ -48,14 +48,12 @@ for (var i = 0; i < hourList.length; i++) {
     timeRow.append(formSave);
 
     // renderAgenda 
-    // ===================== THIS IS WHERE I LEFT OFF TRYING TO RENDER
-    //==================================================
-    console.log(renderAgenda)
-    if (renderAgenda.length > 0) {
-        toDoListTasks.val(renderAgenda);
-        console.log(toDoListTasks);
-    }
-    //===========================================================
+    
+    console
+
+    // if (renderAgenda.length > 0)    {
+    //     console.log(renderAgenda);
+    // };
 
     // Click functionality for forSave functionality
     formSave.on("click", function()  {

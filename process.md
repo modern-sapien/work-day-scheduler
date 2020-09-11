@@ -57,7 +57,9 @@ Visual
 
 2. SAVING & STORING
 
-    Upon entering text into the corresponding hour field a user can save that text using the save button to that field.
+Currently I have created a FOR LOOP that has generated all of the objects that populate the page. I am experiencing difficulty with storing the information in an efficient manner.
 
-    This requires local storage, so stringify the data in that field upon save & push into an array of objects 
+ARRAYS vs OBJECTS for storage
+
+An array is best used for an inifinite number of entries whereas an OBJECT is best used for a set number of entries, corresponding to keys & values which can be updated as variables. 
 

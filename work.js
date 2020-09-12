@@ -6,7 +6,7 @@ console.log(currentDateText)
 var mainContainer = $(".main");
 console.log(mainContainer)
 
-
+currentDateText.text(moment().format('MMM ddd do YYYY'));
 //global variable
 
        var hourList = [
@@ -21,22 +21,10 @@ console.log(mainContainer)
         "5pm",
     ];
     
-    var initialStorageObj   = {
-        "9am" : "",
-        "10am" : "",
-        "11am" : "",
-        "12pm" : "",
-        "1pm" : "",
-        "2pm" : "",
-        "3pm" : "",
-        "4pm" : "",
-        "5pm": "",
-    }
-    
-    var toDoListStorageObj_deserialized = JSON.parse(localStorage.getItem("agendaList")) || initialStorageObj;
-    console.log(toDoListStorageObj_deserialized); 
+    var initialStorageObj = JSON.parse(localStorage.getItem("agendaList")) || []
 
-    toDoListStorageObj_deserialized = initialStorageObj;
+    console.log(initialStorageObj);
+
 
     mainContainer.on("click", ".saveBtn", function()  {
         console.log($(this).siblings("div").text()); //this works because we need to reference a SIBLING in the same container.
@@ -48,13 +36,12 @@ console.log(mainContainer)
         initialStorageObj[hour] = agenda;
         localStorage.setItem("agendaList", JSON.stringify(initialStorageObj))
     });
-    
 
 
 
 
 
-currentDateText.text(moment().format('MMM ddd do YYYY'));
+
 
 // // GLOBAL FUNCTIONS
 for (var i = 0; i < hourList.length; i++) {

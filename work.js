@@ -58,9 +58,6 @@ currentDateText.text(moment().format('MMM ddd do YYYY'));
 
     // USE HOUR LIST AS A KEY FOR THE OBJECT VALUES
     //  ==========================================
-    // for (var j = 0; j < hourList.length; j++) {
-    //     console.log(initialStorageObj[hourList[j]]);
-    // };
 
         // This is where we save our current scheduled events
         mainContainer.on("click", ".saveBtn", function()  {
@@ -95,6 +92,8 @@ currentDateText.text(moment().format('MMM ddd do YYYY'));
     var formContainer = $("<textarea>");
     formContainer.addClass("text-area col-8");
     formContainer.attr("placeholder", "give me something to do at " + hourList[i]); 
+    
+    //If else statements for hour adding class to the formContainer
     if (currentHour < momentHours[i])   {
         formContainer.addClass("future");
     } else if (currentHour > momentHours[i]) {
@@ -103,7 +102,6 @@ currentDateText.text(moment().format('MMM ddd do YYYY'));
     
     formContainer.attr("id", [i]);
     formContainer.text(initialStorageObj[hourList[i]])
-    // formContainer.text(initialStorageObj);
     timeRow.append(formContainer);
 
     var formSave = $("<div>" + " SAVE" + "</div>");

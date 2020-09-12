@@ -3,8 +3,17 @@ $(document).ready(function() {
 // GLOBAL VARIABLES
 var currentDateText = $("#current-day"); 
 console.log(currentDateText)
+
 var mainContainer = $(".main");
 console.log(mainContainer)
+// MOMENTS
+
+let currentHour = (moment().format("ha"));
+console.log(currentHour);
+
+if (currentHour > "5pm") {
+    console.log(currentDateText + " is greater than!")
+}
 
 currentDateText.text(moment().format('MMM ddd do YYYY'));
 //global variable

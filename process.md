@@ -63,3 +63,10 @@ ARRAYS vs OBJECTS for storage
 
 An array is best used for an inifinite number of entries whereas an OBJECT is best used for a set number of entries, corresponding to keys & values which can be updated as variables. 
 
+Pro-TIP
+USE AN ARRAYs values as a key to access object values!
+
+
+9am < 10am < 11am < 12pm < 1pm < 2pm < 3pm < 4pm < 5pm
+
+

@@ -21,30 +21,8 @@ currentDateText.text(moment().format('MMM ddd do YYYY'));
         "5pm",
     ];
     
-    var initialStorageObj = JSON.parse(localStorage.getItem("agendaList")) || []
-
-    console.log(initialStorageObj);
-
-
-    mainContainer.on("click", ".saveBtn", function()  {
-        console.log($(this).siblings("div").text()); //this works because we need to reference a SIBLING in the same container.
-        console.log($(this).siblings("textarea").val());
-
-           var hour = $(this).siblings("div").text();
-           var agenda = $(this).siblings("textarea").val();
     
-        initialStorageObj[hour] = agenda;
-        localStorage.setItem("agendaList", JSON.stringify(initialStorageObj))
-    });
-
-
-
-
-
-
-
-// // GLOBAL FUNCTIONS
-for (var i = 0; i < hourList.length; i++) {
+        for (var i = 0; i < hourList.length; i++) {
     var timeRow = $("<row>" + "</row>");
     timeRow.addClass("row testing time-block");
     mainContainer.append(timeRow); // this has the timeBlock row showing up
@@ -68,9 +46,6 @@ for (var i = 0; i < hourList.length; i++) {
     formSave.attr("dataType", hourList[i]);
     timeRow.append(formSave);
     }
-
-
-// Click functionality for forSave functionality
 
 
 

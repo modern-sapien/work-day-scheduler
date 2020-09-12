@@ -21,6 +21,26 @@ currentDateText.text(moment().format('MMM ddd do YYYY'));
         "5pm",
     ];
     
+<<<<<<< HEAD
+=======
+    initialization();
+
+
+    function initialization() {
+    var initialStorageObj = JSON.parse(localStorage.getItem("agendaList")) || []
+    console.log(initialStorageObj);
+
+        mainContainer.on("click", ".saveBtn", function()  {
+            console.log($(this).siblings("div").text()); //this works because we need to reference a SIBLING in the same container.
+            console.log($(this).siblings("textarea").val());
+
+            var hour = $(this).siblings("div").text();
+            var agenda = $(this).siblings("textarea").val();
+        
+            initialStorageObj[hour] = agenda;
+            localStorage.setItem("agendaList", JSON.stringify(initialStorageObj))
+        });
+>>>>>>> c69a3c697e145b58fe542fd71f23e36c79c37178
     
         for (var i = 0; i < hourList.length; i++) {
     var timeRow = $("<row>" + "</row>");
@@ -48,5 +68,28 @@ currentDateText.text(moment().format('MMM ddd do YYYY'));
     }
 
 
+<<<<<<< HEAD
+=======
+
+}
+
+
+
+    
+
+
+
+
+
+
+
+// // GLOBAL FUNCTIONS
+
+
+
+// Click functionality for forSave functionality
+
+
+>>>>>>> c69a3c697e145b58fe542fd71f23e36c79c37178
 
 });

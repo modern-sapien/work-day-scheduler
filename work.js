@@ -21,12 +21,10 @@ currentDateText.text(moment().format('MMM ddd do YYYY'));
         "5pm",
     ];
     
-<<<<<<< HEAD
-=======
-    initialization();
+    // initialization();
 
 
-    function initialization() {
+   
     var initialStorageObj = JSON.parse(localStorage.getItem("agendaList")) || []
     console.log(initialStorageObj);
 
@@ -40,17 +38,16 @@ currentDateText.text(moment().format('MMM ddd do YYYY'));
             initialStorageObj[hour] = agenda;
             localStorage.setItem("agendaList", JSON.stringify(initialStorageObj))
         });
->>>>>>> c69a3c697e145b58fe542fd71f23e36c79c37178
     
-        for (var i = 0; i < hourList.length; i++) {
+    for (var i = 0; i < hourList.length; i++) {
     var timeRow = $("<row>" + "</row>");
     timeRow.addClass("row testing time-block");
     mainContainer.append(timeRow); // this has the timeBlock row showing up
 
-    var timeContainer = $("<div>");
-    timeContainer.addClass("time-block testing col-2 hour");
-    timeContainer.text(hourList[i]);
-    timeRow.append(timeContainer);
+    var hourContainer = $("<div>");
+    hourContainer.addClass("time-block testing col-2 hour");
+    hourContainer.text(hourList[i]);
+    timeRow.append(hourContainer);
 
     // FORM CONTAINER that holds text entry & submission
     var formContainer = $("<textarea>");
@@ -68,28 +65,10 @@ currentDateText.text(moment().format('MMM ddd do YYYY'));
     }
 
 
-<<<<<<< HEAD
-=======
 
-}
+});
 
 
 
     
 
-
-
-
-
-
-
-// // GLOBAL FUNCTIONS
-
-
-
-// Click functionality for forSave functionality
-
-
->>>>>>> c69a3c697e145b58fe542fd71f23e36c79c37178
-
-});

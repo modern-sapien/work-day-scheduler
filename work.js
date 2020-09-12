@@ -9,6 +9,18 @@ console.log(mainContainer)
 currentDateText.text(moment().format('MMM ddd do YYYY'));
 //global variable
 
+        var initialToDoStorageObj ={
+            "9am" : "",
+            "10am" : "",
+            "11am" : "",
+            "12pm" : "",
+            "1pm" : "",
+            "2pm" : "",
+            "3pm" : "",
+            "4pm" : "",
+            "5pm" : "",
+        };
+
        var hourList = [
         "9am",
         "10am",
@@ -24,18 +36,26 @@ currentDateText.text(moment().format('MMM ddd do YYYY'));
     // initialization();
 
 
-   
-    var initialStorageObj = JSON.parse(localStorage.getItem("agendaList")) || []
+   // This is where we are parsing our local storage
+    var initialStorageObj = JSON.parse(localStorage.getItem("agendaList")) || initialToDoStorageObj;
     console.log(initialStorageObj);
 
+    // USE HOUR LIST AS A KEY FOR THE OBJECT VALUES
+    //  ==========================================
+    
+        // This is where we save our current scheduled events
         mainContainer.on("click", ".saveBtn", function()  {
             console.log($(this).siblings("div").text()); //this works because we need to reference a SIBLING in the same container.
             console.log($(this).siblings("textarea").val());
 
+            
             var hour = $(this).siblings("div").text();
             var agenda = $(this).siblings("textarea").val();
         
+
             initialStorageObj[hour] = agenda;
+
+            toDoSetter = (JSON.stringify(initialToDoStorageObj) + " howdy")
             localStorage.setItem("agendaList", JSON.stringify(initialStorageObj))
         });
     

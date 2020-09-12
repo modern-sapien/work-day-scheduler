@@ -83,16 +83,17 @@ currentDateText.text(moment().format('MMM ddd do YYYY'));
         
     for (var i = 0; i < momentHours.length; i++) {
     var timeRow = $("<row>" + "</row>");
-    timeRow.addClass("row testing time-block");
+    timeRow.addClass("row time-block");
     mainContainer.append(timeRow); // this has the timeBlock row showing up
+    
     var hourContainer = $("<div>");
-    hourContainer.addClass("time-block testing col-2 hour");
+    hourContainer.addClass("col-2 hour");
     hourContainer.text(hourList[i]);
     timeRow.append(hourContainer);
 
     // FORM CONTAINER that holds text entry & submission
     var formContainer = $("<textarea>");
-    formContainer.addClass("text-area testing col-8");
+    formContainer.addClass("text-area col-8");
     formContainer.attr("placeholder", "give me something to do at " + hourList[i]); 
     if (currentHour < momentHours[i])   {
         formContainer.addClass("future");
@@ -105,8 +106,8 @@ currentDateText.text(moment().format('MMM ddd do YYYY'));
     // formContainer.text(initialStorageObj);
     timeRow.append(formContainer);
 
-    var formSave = $("<div>" + "SAVE" + "</div>");
-    formSave.addClass("text-area saveBtn time-block testing col-2");
+    var formSave = $("<div>" + " SAVE" + "</div>");
+    formSave.addClass("saveBtn col-2 fas fa-save");
     formSave.attr("dataType", hourList[i]);
     timeRow.append(formSave);
     }

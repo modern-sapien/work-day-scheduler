@@ -8,9 +8,14 @@ var mainContainer = $(".main");
 console.log(mainContainer)
 // MOMENTS
 
+let m = moment();
+
+console.log(m.hour())
+
 let currentHour = (moment().format("ha"));
 console.log(currentHour);
 
+// CAN I USE THIS IN THE FOR LOOP?
 if (currentHour > "5pm") {
     console.log(currentDateText + " is greater than!")
 }
@@ -79,6 +84,7 @@ currentDateText.text(moment().format('MMM ddd do YYYY'));
     var hourContainer = $("<div>");
     hourContainer.addClass("time-block testing col-2 hour");
     hourContainer.text(hourList[i]);
+    
     timeRow.append(hourContainer);
 
     // FORM CONTAINER that holds text entry & submission

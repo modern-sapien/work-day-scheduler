@@ -12,17 +12,19 @@ let m = moment();
 
 console.log(m.hour())
 
-let currentHour = (moment().format("ha"));
+let currentHour = (moment().format("h"));
 console.log(currentHour);
 
 // CAN I USE THIS IN THE FOR LOOP?
-if (currentHour > "5pm") {
-    console.log(currentDateText + " is greater than!")
-}
+    //Curren hour is displayed in military time
+    if (currentHour < 10) {
+        console.log(currentHour + " is less than!")
+    }
 
 currentDateText.text(moment().format('MMM ddd do YYYY'));
 //global variable
 
+// Object that populates the divs we initialize with
         var initialToDoStorageObj ={
             "9am" : "",
             "10am" : "",
@@ -34,7 +36,7 @@ currentDateText.text(moment().format('MMM ddd do YYYY'));
             "4pm" : "",
             "5pm" : "",
         };
-
+// Original Hour List && Key for above object values
        var hourList = [
         "9am",
         "10am",
@@ -46,8 +48,8 @@ currentDateText.text(moment().format('MMM ddd do YYYY'));
         "4pm",
         "5pm",
     ];
-    
-    // initialization();
+
+    var momentHours = [9, 10, 11, 12, 13, 14, 15, 16, 17]
 
 
    // This is where we are parsing our local storage
@@ -75,23 +77,29 @@ currentDateText.text(moment().format('MMM ddd do YYYY'));
             toDoSetter = (JSON.stringify(initialToDoStorageObj) + " howdy")
             localStorage.setItem("agendaList", JSON.stringify(initialStorageObj))
         });
-    
-    for (var i = 0; i < hourList.length; i++) {
+
+
+   
+        
+    for (var i = 0; i < momentHours.length; i++) {
     var timeRow = $("<row>" + "</row>");
     timeRow.addClass("row testing time-block");
     mainContainer.append(timeRow); // this has the timeBlock row showing up
-
     var hourContainer = $("<div>");
     hourContainer.addClass("time-block testing col-2 hour");
     hourContainer.text(hourList[i]);
-    
     timeRow.append(hourContainer);
 
     // FORM CONTAINER that holds text entry & submission
     var formContainer = $("<textarea>");
     formContainer.addClass("text-area testing col-8");
-    formContainer.attr("placeholder", "give me something to do at " + hourList[i]);
-    formContainer.attr("data-type", hourList[i]);
+    formContainer.attr("placeholder", "give me something to do at " + hourList[i]); 
+    if (currentHour < momentHours[i])   {
+        formContainer.addClass("future");
+    } else if (currentHour > momentHours[i]) {
+        formContainer.addClass("past");
+    }   else (formContainer.addClass("present"))
+    
     formContainer.attr("id", [i]);
     formContainer.text(initialStorageObj[hourList[i]])
     // formContainer.text(initialStorageObj);

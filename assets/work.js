@@ -12,7 +12,7 @@ let m = moment();
 
 console.log(m.hour())
 
-let currentHour = (moment().format("h"));
+let currentHour = (m.hour());
 console.log(currentHour);
 
 // CAN I USE THIS IN THE FOR LOOP?
@@ -94,11 +94,11 @@ currentDateText.text(moment().format('MMM ddd do YYYY'));
     formContainer.attr("placeholder", "give me something to do at " + hourList[i]); 
     
     //If else statements for hour adding class to the formContainer
-    if (currentHour > momentHours[i])   {
+    if (currentHour < momentHours[i])   {
         formContainer.addClass("future");
-    } else if (currentHour < momentHours[i]) {
-        formContainer.addClass("past");
-    }   else (formContainer.addClass("present"))
+    } else if (currentHour == momentHours[i]) {
+        formContainer.addClass("present");
+    }   else (formContainer.addClass("past"))
     
     formContainer.attr("id", [i]);
     formContainer.text(initialStorageObj[hourList[i]])

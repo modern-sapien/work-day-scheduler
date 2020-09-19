@@ -94,9 +94,9 @@ currentDateText.text(moment().format('MMM ddd do YYYY'));
     formContainer.attr("placeholder", "give me something to do at " + hourList[i]); 
     
     //If else statements for hour adding class to the formContainer
-    if (currentHour < momentHours[i])   {
+    if (currentHour > momentHours[i])   {
         formContainer.addClass("future");
-    } else if (currentHour > momentHours[i]) {
+    } else if (currentHour < momentHours[i]) {
         formContainer.addClass("past");
     }   else (formContainer.addClass("present"))
     
